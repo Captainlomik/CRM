@@ -14,7 +14,7 @@ module.exports.getByCategoryId = async function (req, res) {
 }
 module.exports.create = async function (req, res) {
     try {
-        const positon = await new Position({
+        const position = await new Position({
             name: req.body.name,
             cost: req.body.cost,
             category: req.body.category,
