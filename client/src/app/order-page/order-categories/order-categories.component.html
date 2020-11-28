@@ -1,6 +1,6 @@
 <div *ngIf="categories$ | async as categories; else loader">
   <div class="frow order-row" *ngIf="categories.length!==0; else empty">
-    <div [routerLink]="['/order', category._id]" routerLinkActive="router-link-active"  class="card waves-effect pointer" *ngFor="let category of categories">
+    <div [routerLink]="['/order', category._id]"  class="card waves-effect pointer" *ngFor="let category of categories">
       <div class="center">
         <img [src]='category.imageSrc' class="responsive-img order-img">
       </div>

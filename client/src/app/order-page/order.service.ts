@@ -9,7 +9,7 @@ export class OrderService {
     public price = 0
 
     add(position: Position) {
-        const orderPosition = Object.assign({}, {
+        const orderPosition:OrderPosition = Object.assign({}, {
             name: position.name,
             cost: position.cost,
             quantity: position.quantity,
@@ -45,6 +45,9 @@ export class OrderService {
         this.computePrise()
     }
 
-    clear() { }
+    clear() {
+        this.list = []
+        this.price = 0
+    }
 
 }

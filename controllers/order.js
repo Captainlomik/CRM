@@ -19,12 +19,12 @@ module.exports.getAll = async function (req, res) {
         query.date['$lte'] = req.query.end
     }
     if(req.query.order){ //поиск 
-        query.order=+req.qury.order
+        query.order=+req.query.order
     }
 
 
     try {
-        const order=await Order
+        const orders=await Order
         .find(query)
         .sort({date:-1})
         .skip(+req.query.offset)

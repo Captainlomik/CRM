@@ -12,7 +12,7 @@ const orderSchema = new Schema({
     },
     list: [{
         name: {
-            type: Number
+            type: String
         },
         quantity: {
             type: Number

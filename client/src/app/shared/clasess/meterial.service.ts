@@ -1,11 +1,11 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, OnInit } from '@angular/core';
 
 declare var M
 
-export interface MaterialInstance{
-    open?():void
-    close?():void,
-    destroy?():void
+export interface MaterialInstance {
+    open?(): void
+    close?(): void,
+    destroy?(): void
 }
 
 
@@ -19,8 +19,12 @@ export class MaterialService {
         M.updateTextFields();
     }
 
-    static initModal(ref:ElementRef):MaterialInstance{
-       return  M.Modal.init(ref.nativeElement)
+    static initModal(ref: ElementRef): MaterialInstance {
+        return M.Modal.init(ref.nativeElement)
+    }
+
+    static initTooltip(ref: ElementRef): MaterialInstance {
+        return M.Tooltip.init(ref.nativeElement)
     }
 }
 

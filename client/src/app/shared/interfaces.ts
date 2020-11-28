@@ -29,7 +29,7 @@ export interface Order{
     date?:Date,
     order?:number,
     user?:string,
-    listh:any[],
+    list:any[],
     _id?:string
 
 }
