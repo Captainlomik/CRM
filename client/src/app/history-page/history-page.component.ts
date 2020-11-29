@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit } fr
 import { MaterialInstance } from '../shared/clasess/meterial.service';
 import { Filter, Order } from '../shared/interfaces';
 
-const STEP = 2
+ //const STEP = 2;
 
 @Component({
   selector: 'app-history-page',
@@ -17,11 +17,13 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('tooltip', { static: false }) tooltipRef: ElementRef
 
+  STEP = 2
+
   tooltip: MaterialInstance
   isFilterVisible = false
 
   offset = 0
-  limit = STEP
+  limit = 2
 
   oSub: Subscription
   orders: Order[] = []
@@ -32,6 +34,8 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   noMoreOrders = false
 
   filter: Filter = {}
+
+
 
   constructor(private ordersService: OrdersService) { }
 
@@ -45,13 +49,13 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const params = Object.assign({}, this.filter, {
       offset: this.offset,
-      limit: this.limit
+      limit: this.STEP
     })
 
     this.oSub = this.ordersService.fetch(params).subscribe(
       orders => {
         this.orders = this.orders.concat(orders)
-        this.noMoreOrders = orders.length < STEP
+        this.noMoreOrders = orders.length < this.STEP
         this.loading = false
         this.reloading = false
       }
@@ -59,7 +63,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   loadMore() {
-    this.offset += STEP;
+    this.offset += this.STEP;
     this.loading = true
     this.fetch()
   }

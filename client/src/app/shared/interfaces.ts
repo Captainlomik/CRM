@@ -1,3 +1,4 @@
+import { OrdersService } from './services/orders.service';
 
 export interface User {
     email: string,
@@ -22,27 +23,39 @@ export interface Position {
     cost: number,
     category: string,
     user?: string,
-    quantity?:number
+    quantity?: number
 }
 
-export interface Order{
-    date?:Date,
-    order?:number,
-    user?:string,
-    list:any[],
-    _id?:string
+export interface Order {
+    date?: Date,
+    order?: number,
+    user?: string,
+    list: any[],
+    _id?: string
 
 }
 
-export interface OrderPosition{
-    name:string, 
-    cost:number,
-    quantity:number,
-    _id?:string
+export interface OrderPosition {
+    name: string,
+    cost: number,
+    quantity: number,
+    _id?: string
 }
 
-export interface Filter{
-    start?:Date,
-    end?:Date,
-    order?:number
+export interface Filter {
+    start?: Date,
+    end?: Date,
+    order?: number
+}
+
+export interface OverviewPage {
+    orders: OverviewPageItem
+    gain: OverviewPageItem
+}
+
+export interface OverviewPageItem {
+    percent: number
+    compare: number
+    yesterday: number
+    isHigher: boolean
 }

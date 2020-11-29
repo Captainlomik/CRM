@@ -5,12 +5,12 @@ const moment = require('moment')
 
 module.exports.overview = async function (req, res) {
     try {
-        const yesterdayOrders = ordersMap[moment().add(-1, 'd').format('DD.MM.YYYY')] || []
-
+    
         const allOrders = await Order.find({
             user: req.user.id
-        }).sort(1)
+        }).sort({date:1})
         const ordersMap = getOrdersMap(allOrders)
+        const yesterdayOrders = ordersMap[moment().add(-1, 'd').format('DD.MM.YYYY')] || []
 
         //кол-во заказов
         const totalOrdersNumber = allOrders.length
@@ -56,7 +56,7 @@ module.exports.overview = async function (req, res) {
     }
 }
 
-module.exports.analitics = function (req, res) {
+module.exports.analytics = function (req, res) {
 
 }
 
