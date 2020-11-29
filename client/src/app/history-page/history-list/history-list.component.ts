@@ -1,6 +1,5 @@
 import { MaterialService } from './../../shared/clasess/meterial.service';
-import { Component, Injectable, Input, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'constants';
+import { Component, Input, ViewChild, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { MaterialInstance } from 'src/app/shared/clasess/meterial.service';
 import { Order } from 'src/app/shared/interfaces';
 
