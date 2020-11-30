@@ -17,7 +17,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('tooltip', { static: false }) tooltipRef: ElementRef
 
-  STEP = 2
+  STEP = 15
 
   tooltip: MaterialInstance
   isFilterVisible = false

@@ -58,14 +58,14 @@ module.exports.overview = async function (req, res) {
 
 module.exports.analytics = async  function (req, res) {
 try{
-    const all = await Order.find ({user:req.user.id}).sort({date:1})
+    const allOrders = await Order.find ({user:req.user.id}).sort({date:1})
     const ordersMap = getOrdersMap(allOrders)
 
     const average = +(calculateGain(allOrders)/Object.keys(ordersMap).length).toFixed(2)
 
     const chart = Object.keys(ordersMap).map(label=>{
         //label = 15.05.2020
-        const gain = calculateGain(prdersMap[label])
+        const gain = calculateGain(ordersMap[label])
         const order = ordersMap[label].length
 
         return {label, order, gain}
@@ -74,7 +74,7 @@ try{
     res.status(200).json({ average, chart })
 }
 catch(e){
-    errorHandler(e)
+    errorHandler(res, e)
 }
 }
 

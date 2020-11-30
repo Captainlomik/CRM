@@ -1,3 +1,4 @@
+import { AnalyticsService } from './services/analytics.service';
 import { OrdersService } from './services/orders.service';
 
 export interface User {
@@ -58,4 +59,16 @@ export interface OverviewPageItem {
     compare: number
     yesterday: number
     isHigher: boolean
+}
+
+export interface AnalyticsPage{
+    average:number
+    chart:AnalyticsChartItem[]
+}
+
+export interface AnalyticsChartItem
+{
+    gain:number
+    order:number
+    label:string
 }
