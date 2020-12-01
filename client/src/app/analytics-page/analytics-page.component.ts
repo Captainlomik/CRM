@@ -34,10 +34,10 @@ export class AnalyticsPageComponent implements AfterViewInit, OnDestroy {
     this.aSub = this.service.getAnalytics().subscribe((data: AnalyticsPage) => {
       this.average = data.average
 
-      gainConfig.labels = data.chart.map(item => { item.label })
+      gainConfig.labels = data.chart.map(item => item.label)
       gainConfig.data = data.chart.map(item => item.gain)
 
-      orderConfig.labels = data.chart.map(item => { item.label })
+      orderConfig.labels = data.chart.map(item => item.label )
       orderConfig.data = data.chart.map(item => item.order)
 
 

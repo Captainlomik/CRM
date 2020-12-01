@@ -3,7 +3,7 @@ const moment = require('moment')
 
 const storage = multer.diskStorage({
     destination(req, file, cb) {
-        cb(null, 'uploads')
+        cb(null, 'uploads/')
     },
     filename(req, file, cb) {
         const date = moment().format('DDMMYYYY-HHmmss_SSS')
@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 })
 
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
+    if (file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
         cb(null, true)
     } else {
         cb(null, false)

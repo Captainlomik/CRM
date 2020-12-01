@@ -1,5 +1,3 @@
-import { AnalyticsService } from './services/analytics.service';
-import { OrdersService } from './services/orders.service';
 
 export interface User {
     email: string,

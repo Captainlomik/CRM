@@ -6,7 +6,7 @@ const categorySchema = new Schema({
         type: String,
         require: true
     },
-    imgSrc: {
+    imageSrc: {
         type: String,
         default: ''
     },

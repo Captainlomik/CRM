@@ -21,7 +21,7 @@ export class CategoriesFormComponent implements OnInit {
   form: FormGroup;
   category: Category;
   image: File
-  imagePreview
+  imagePreview=''
 
 
 
@@ -59,6 +59,8 @@ export class CategoriesFormComponent implements OnInit {
               name: category.name
             })
             this.imagePreview = category.imageSrc
+            console.log(this.imagePreview +"prev")
+            console.log(this.category.imageSrc + 'src')
             MaterialService.updateTextInputs()
           }
           this.form.enable()
@@ -78,7 +80,7 @@ export class CategoriesFormComponent implements OnInit {
 
     const reader = new FileReader()
     reader.onload = () => {
-      this.imagePreview = reader.result
+      this.imagePreview = reader.result as string
     }
     reader.readAsDataURL(file)
   }
@@ -96,11 +98,12 @@ export class CategoriesFormComponent implements OnInit {
 
   onSubmit() {
     let obs$
-
+   console.log(this.image)
     this.form.disable()
     if (this.isNew) {
       //create
       obs$ = this.categoriesService.create(this.form.value.name, this.image)
+   
     } else {
       obs$ = this.categoriesService.update(this.category._id, this.form.value.name, this.image)
     }

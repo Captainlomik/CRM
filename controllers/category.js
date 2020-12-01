@@ -1,12 +1,8 @@
 const Category = require('../models/Category')
 const errorHandler = require('../utils/errorHandler')
 const Position = require('../models/Positions')
-const {
-    transformAuthInfo
-} = require('passport')
-const {
-    update
-} = require('./position')
+const {transformAuthInfo} = require('passport')
+const {  update} = require('./position')
 
 
 module.exports.getAll = async function (req, res) {
@@ -49,7 +45,7 @@ module.exports.create = async function (req, res) {
     const category = new Category({
         name: req.body.name,
         user: req.user.id,
-        imageSrc: req.file ? req.file.path : ''
+        imageSrc:  req.file.path
     })
     try {
         await category.save()
